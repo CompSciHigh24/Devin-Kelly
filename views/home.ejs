@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devin G Kelly</title>
+  <link rel="stylesheet" href="/style.css">
+<link rel="preconnect"
+    href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gudea&display=swap" rel="stylesheet">
+  </link>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gudea:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+</html>
+
+<body id = "core"> 
+<h1 id = "dgk" class = "headers">Devin G. Kelly</h1>
+
+<h1 id ="wts" class = "headers" > Writer, Teacher, Student</h1>
+
+  <% for(let i = 0; i < books.length; i++) { %> 
+    <h1 class = "headers"><%=books[i].title%></h1>
+    <img class ="images" src="<%= books[i].image_URL%>"</img>
+    <h2 class = "headers" ><%=books[i].author%></h2>
+    <h3 class = "headers" ><%=books[i].yearPublished%></h3>
+    <a href="<%=books[i].URL%>" target="_blank">Buy Here</a>
+
+  
+<% } %>
+
+  <br></br>
+
+  <br></br>
+  
+  <% for(let i = 0; i < press.length; i++) { %>
+    <a href="<%=press[i].URL%>" target="_blank"><%=press[i].text%></a><br>
+    <% } %>
+
+
+      <% for(let i = 0; i < quotes.length; i++) { %>
+<h2 class = "headers" ><%=quotes[i].text%></h2>
+        <h3 class = "headers" ><%=quotes[i].name%></h3>
+         <% } %>
+           
+         <% for(let i = 0; i<pubWork.length;i++){ 
+ %>
+          <a href ="<%=pubWork[i].URL%>" target="_blank"> <%=pubWork[i].title%></a>
+           <p><%=pubWork[i].company%></p>
+           <p><%=pubWork[i].yearPublished%></p>
+            <% } %>
+
+
+</body>

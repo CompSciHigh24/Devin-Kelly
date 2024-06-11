@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Page</title>
+  <!-- Connect your javascript here -->
+<script src="/script.js" defer></script>
+
+<style>
+  .book-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+  }
+
+  .press-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+  }
+</style>
+</head>
+<body>
+  <h2>Create New Book</h2>
+
+  <form>
+    <!-- For the title input, set the correct type, name, and required attributes according to the bookSchema  -->
+    <label>Title: </label>
+    <input type="text" name="title" /></br>
+
+    <!-- Repeat for Author -->
+
+    <label>Author: </label>
+    <input type="text" name="author" /></br>
+
+    <!-- Repeat for Year Published -->
+
+    <label>Year Published: </label>
+    <input type="number" name="yearPublished" /></br>
+
+    <label>URL:</label>
+    <input type="string" name="URL" /></br>
+
+    <label>image_URL:</label>
+    <input type="string" name="image_URL" /></br>
+
+    <!-- Set the button type -->
+    <button type="submit">Submit</button>
+  </form>
+
+  <h1>List of Books</h1>
+
+  <% for(let i = 0; i < books.length; i++) { %>
+    <div class="book-box">
+      <p><b>Title:</b> <%= books[i].title %></p>
+      <p><b>Author:</b> <%= books[i].author %></p>
+      <p><b>Year Published:</b> <%= books[i].yearPublished %></p>
+      <button type="button"></button>
+    </div>
+  <% } %>
+
+
+      <h2>Create New Press Entry</h2>
+
+      <form id = "form2">
+        <!-- For the title input, set the correct type, name, and required attributes according to the bookSchema  -->
+        <label>Text: </label>
+        <input type="text" name="text" /></br>
+
+        <!-- Repeat for Author -->
+
+        <label>URL: </label>
+        <input type="text" name="url" /></br>
+
+        <!-- Set the button type -->
+        <button type="submit">Submit</button>
+      </form>
+
+      <h1>List of Press Entries</h1>
+
+      <% for(let i = 0; i < press.length; i++) { %>
+        <div class="press-box">
+          <p><b>text:</b> <%= press[i].text %></p>
+          <p><b>URL:</b> <%= press[i].URL%> </p>
+        </div>
+      <% } %>
+ 
+              <h2>Create New Quote </h2>
+
+              <form id = "form3">
+                <!-- For the title input, set the correct type, name, and required attributes according to the bookSchema  -->
+                <label>Text: </label>
+                <input type="text" name="text" /></br>
+
+                <!-- Repeat for Name -->
+
+                <label>Name: </label>
+                <input type="text" name="name" /></br>
+
+                <!-- Set the button type -->
+                <button type="submit">Submit</button>
+              </form>
+
+              <h1>List of Quotes</h1>
+
+              <% for(let i = 0; i < quotes.length; i++) { %>
+                <div class="quotes-box">
+                  <p><b>text:</b> <%= quotes[i].text %></p>
+                  <p><b>name:</b> <%= quotes[i].name %></p>
+                </div>
+              <% } %>
+           
+                      <h2>Create New Published Work Entry</h2>
+
+                      <form id = "form4">
+                        <!-- For the title input, set the correct type, name, and required attributes according to the bookSchema  -->
+                        <label>Title: </label>
+                        <input type="text" name="title" /></br>
+
+                        <!-- Repeat for URL -->
+
+                        <label>URL: </label>
+                        <input type="text" name="url" /></br>
+
+                        <label>Company:</label>
+                        <input type="text" name="company"
+
+                          <label>YearPublished:</label>
+                        <input type="number" name="yearPublished"
+                        <!-- Set the button type -->
+                        <button type="submit">Submit</button>
+                      </form>
+
+                      <h1>List of Published Work </h1>
+
+                      <% for(let i = 0; i < pubWork.length; i++) { %>
+                        <div class="pubWork-box">
+                          <p><b>Title:</b> <%= pubWork[i].title%></p>
+                          <p><b>URL:</b> <%= pubWork[i].URL%></p>
+                           <p><b>Company:</b> <%= pubWork[i].company%></p>
+                           <p><b>yearPublished:</b> <%=pubWork[i].yearPublished%></p>
+                        </div>
+                      <% } %>
+                      </body>
+                      </html>

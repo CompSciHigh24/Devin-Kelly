@@ -1,0 +1,39 @@
+html {
+  font-family: 'Gudea', sans-serif;
+text-size-adjust:100%,
+  
+}
+
+ #core{
+  background-color: #6CCFF6;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+      
+}
+
+.headers {
+  font-family: 'Gudea', sans-serif;
+  margin: auto;
+  margin-bottom: 25px
+}
+  
+  a {
+    color:transparent
+  }
+a:link{
+  text-decoration: none;
+  color:black;
+}
+  img{
+    border:0;
+  }
+
+  button {
+    border: 0;
+      padding: 0;
+  }
