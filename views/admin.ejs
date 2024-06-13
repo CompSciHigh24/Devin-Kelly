@@ -56,7 +56,7 @@
       <p><b>Title:</b> <%= books[i].title %></p>
       <p><b>Author:</b> <%= books[i].author %></p>
       <p><b>Year Published:</b> <%= books[i].yearPublished %></p>
-      <button type="button"></button>
+      <button class = "delForm" id="<%= books[i]._id %>" type="button"> Delete </button>
     </div>
   <% } %>
 
@@ -71,7 +71,7 @@
         <!-- Repeat for Author -->
 
         <label>URL: </label>
-        <input type="text" name="url" /></br>
+        <input type="text" name="URL" /></br>
 
         <!-- Set the button type -->
         <button type="submit">Submit</button>
@@ -83,6 +83,7 @@
         <div class="press-box">
           <p><b>text:</b> <%= press[i].text %></p>
           <p><b>URL:</b> <%= press[i].URL%> </p>
+           <button class = "delForm2" id="<%= press[i]._id %>" type="button"> Delete </button>
         </div>
       <% } %>
  
@@ -108,6 +109,7 @@
                 <div class="quotes-box">
                   <p><b>text:</b> <%= quotes[i].text %></p>
                   <p><b>name:</b> <%= quotes[i].name %></p>
+                   <button class = "delForm3" id="<%= quotes[i]._id %>" type="button"> Delete </button>
                 </div>
               <% } %>
            
@@ -121,7 +123,7 @@
                         <!-- Repeat for URL -->
 
                         <label>URL: </label>
-                        <input type="text" name="url" /></br>
+                        <input type="text" name="URL" /></br>
 
                         <label>Company:</label>
                         <input type="text" name="company"
@@ -140,6 +142,7 @@
                           <p><b>URL:</b> <%= pubWork[i].URL%></p>
                            <p><b>Company:</b> <%= pubWork[i].company%></p>
                            <p><b>yearPublished:</b> <%=pubWork[i].yearPublished%></p>
+                           <button class = "delForm4" id="<%= pubWork[i]._id %>" type="button"> Delete </button>
                         </div>
                       <% } %>
                       </body>

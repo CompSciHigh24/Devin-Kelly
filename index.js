@@ -43,7 +43,7 @@ const Press = mongoose.model("Press", pressSchema);
 
 // Schema and model for Books
 const bookSchema = new mongoose.Schema({
-  title: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
   author: { type: String, required: true },
   yearPublished: { type: Number, required: true },
   URL: { type: String, required: true },
@@ -204,90 +204,89 @@ app.get("/admin", (req, res) => {
     });
 });
 
-app.delete("/book/:id", (req, res) => {
-  const filter = { title: req.params.title };
+app.delete("/book/:_id", (req, res) => {
+  const filter = { _id: req.params._id };
 
-  Book.findOneAndDelete(filter).then((del) => {
-    res.json(del);
-  });
+  Book.findOneAndDelete(filter)
+    .then((del) => {
+      console.log(del);
+      res.json(del);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
-app.patch("/book/:id", (req, res) => {
-  Book.findByIdAndUpdate = (req.params.title, req.body, { new: true }).then(
+app.patch("/book/:_id", (req, res) => {
+  Book.findByIdAndUpdate(req.params._id, req.body, { new: true }).then(
     (book) => {
       res.json(book);
     },
   );
-  const update = {
-    title: req.body.title,
-    author: req.body.author,
-    yearPublished: req.body.yearPublished,
-    URL: req.body.URL,
-    image_URL: req.body.image_URL,
-  };
-
-  Book.findOneAndUpdate(id, update, { new: true }).then((upd) => {
-    res.json(upd);
-  });
 });
 
-app.patch("/publishedWork/:id", (req, res) => {
-  // publishedWork.findByIdAndUpdate(req.params.title, req.body, {new: true} )
-
-  const update2 = {
-    title: req.body.title,
-    URL: req.body.URL,
-    company: req.body.company,
-    yearPublished: req.body.yearPublished,
-  };
-
-  publishedWork.findOneAndUpdate(id, update2, { new: true }).then((upd) => {
-    res.json(upd);
-  });
+app.patch("/publishedWork/:_id", (req, res) => {
+  publishedWork
+    .findByIdAndUpdate(req.params._id, req.body, { new: true })
+    .then((publishedWork) => {
+      res.json(publishedWork);
+    });
 });
 
-app.delete("/publishedWork/:id", (req, res) => {
-  const filter2 = { title: req.params.title };
+app.delete("/publishedWork/:_id", (req, res) => {
+  const filter = { _id: req.params._id };
 
-  publishedWork.findOneAndDelete(filter2).then((del) => {
-    res.json(del);
-  });
+  publishedWork
+    .findOneAndDelete(filter)
+    .then((del) => {
+      console.log(del);
+      res.json(del);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
-app.patch("/quotes/:id", (req, res) => {
-  // quotes.findByIdAndUpdate(req.params.title, req.body, { new: true });
-
-  const update3 = { text: req.body.text, name: req.body.name };
-
-  quotes.findOneAndUpdate(id, update3, { new: true }).then((upd) => {
-    res.json(upd);
-  });
+app.patch("/quotes/:_id", (req, res) => {
+  Quote.findByIdAndUpdate(req.params._id, req.body, { new: true }).then(
+    (quotes) => {
+      res.json(quotes);
+    },
+  );
 });
 
-app.delete("/quotes/:id", (req, res) => {
-  const filter3 = { title: req.params.title };
+app.delete("/quotes/:_id", (req, res) => {
+  const filter = { _id: req.params._id };
 
-  quotes.findOneAndDelete(filter3).then((del) => {
-    res.json(del);
-  });
+  Quote.findOneAndDelete(filter)
+    .then((del) => {
+      console.log(del);
+      res.json(del);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
-app.patch("/press/:id", (req, res) => {
-  // press.findByIdAndUpdate(req.params.text, req.body, { new: true });
-
-  const update4 = { text: req.body.text, URL: req.body.URL };
-
-  quotes.findOneAndUpdate(id, update4, { new: true }).then((upd) => {
-    res.json(upd);
-  });
+app.patch("/press/:_id", (req, res) => {
+  Press.findByIdAndUpdate(req.params._id, req.body, { new: true }).then(
+    (book) => {
+      res.json(book);
+    },
+  );
 });
 
-app.delete("/press/:id", (req, res) => {
-  const filter4 = { text: req.params.text };
+app.delete("/press/:_id", (req, res) => {
+  const filter = { _id: req.params._id };
 
-  press.findOneAndDelete(filter4).then((del) => {
-    res.json(del);
-  });
+  Press.findOneAndDelete(filter)
+    .then((del) => {
+      console.log(del);
+      res.json(del);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(3000, () => {
